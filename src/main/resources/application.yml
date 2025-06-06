@@ -1,0 +1,81 @@
+server:
+  port: 8080
+
+spring:
+  #==========================
+  # DATABASE
+  #==========================
+  datasource:
+    url: jdbc:mysql://localhost:3306/internship_management?useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 11062003cong
+
+  #=========================
+  # JPA/HIBERNATE
+  #=========================
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  #=========================
+  # INTERNATIONALIZATION (I18N)
+  #=========================
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    default-locale: en
+
+  #=========================
+  # MVC VIEW CONFIGURATION
+  #=========================
+  mvc:
+    view:
+      prefix: /views/
+      suffix: .jsp
+
+  #=========================
+  # MAIL CONFIGURATION
+  #=========================
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: buianhnguyet08072003@gmail.com
+    password: rolo bkkl ilod kfuh
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+#=========================
+# JWT CONFIGURATION
+#=========================
+jwt:
+  expiration: 2592000 # 30 days = 30 * 24 * 60 * 60
+  expiration-refresh-token: 5184000 # 60 days = 60 * 24 * 60 * 60
+  secretKey: Ys1fTeUtFNZovUTaw/mcOOyxE4yxJdcmo68G5MEGRJs=
+
+#=========================
+# LOGGING CONFIGURATION
+#=========================
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
